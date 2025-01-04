@@ -1,12 +1,16 @@
 package java8;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.BiPredicate;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class PredicateStudy {
 
 	//1. Write a Java program to implement a lambda expression to check if a given string is empty.
 	//2. Write a Java program to implement a lambda expression to check if the 2 given strings are both empty
+	//3. Write a Java program to implement a lambda expression to filter out even and odd numbers from a list of integers.
 	
 	public static void main(String[] args) {
 
@@ -26,6 +30,16 @@ public class PredicateStudy {
 		BiPredicate<String, String> checkerForTwo = (str1, str2) -> str1.isEmpty() && str2.isEmpty();
 		System.out.println(checkerForTwo.test("this string is not empty", "not empty"));
 		System.out.println(checkerForTwo.test("", ""));
+		
+		//3. Task
+		List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
+		System.out.println(filterEven(list));
+	}
+
+	//	Write a Java program to implement a lambda expression to filter out even and odd numbers from a list of integers.
+	static List<Integer> filterEven(List<Integer> list){
+		List<Integer> collect = list.stream().filter(x -> x % 2 == 0 ).collect(Collectors.toList());
+		return collect;
 	}
 }
 
