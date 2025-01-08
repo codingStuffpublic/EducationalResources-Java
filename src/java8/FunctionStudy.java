@@ -16,7 +16,6 @@ public class FunctionStudy {
 		System.out.println(toUpperCaseList(list)); //[RED, GREEN, BLUE]
 		functionsAndThen();
 		functionsCompose();
-	
 	}
 	
 	//1. Convert list of strings to uppercase using Lambda expression in Java

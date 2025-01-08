@@ -34,12 +34,26 @@ public class PredicateStudy {
 		//3. Task
 		List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
 		System.out.println(filterEven(list));
+		
+		//4 default methods
+		filter();
 	}
 
 	//	Write a Java program to implement a lambda expression to filter out even and odd numbers from a list of integers.
 	static List<Integer> filterEven(List<Integer> list){
 		List<Integer> collect = list.stream().filter(x -> x % 2 == 0 ).collect(Collectors.toList());
 		return collect;
+	}
+	
+	static void filter() {
+		Predicate<Integer> isEven = i -> i % 2 == 0;
+		Predicate<Integer> isPositive = i -> i > 0;
+
+		System.out.println("-------- filter ----------");
+		System.out.println(isEven.test(4)); // Outputs: true
+		System.out.println(isEven.and(isPositive).test(-4)); // Outputs: false
+		System.out.println(isEven.or(isPositive).test(-3)); // Outputs: true
+		System.out.println(isEven.negate().test(4)); // Outputs: true
 	}
 }
 
