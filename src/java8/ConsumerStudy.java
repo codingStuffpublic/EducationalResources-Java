@@ -40,7 +40,5 @@ public class ConsumerStudy {
         first.andThen(second).accept("Hello world");
 	}
 	
-	
 
-	
 }
