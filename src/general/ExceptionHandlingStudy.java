@@ -1,10 +1,7 @@
 package general;
 
-//Class
-//ExceptionThrown
 class ExceptionHandlingStudy {
 
-	
 //	ArithmeticException inherits from the RuntimeException class which means it is an unchecked, runtime exception
 	public static void main(String args[]) {
 		int a = 1;
