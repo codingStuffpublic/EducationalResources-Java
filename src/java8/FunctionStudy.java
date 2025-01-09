@@ -1,7 +1,9 @@
 package java8;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Function;
 
 public class FunctionStudy {
@@ -14,8 +16,12 @@ public class FunctionStudy {
 		//1. 
 		List<String> list = Arrays.asList("Red", "green", "bLUe");
 		System.out.println(toUpperCaseList(list)); //[RED, GREEN, BLUE]
+		
 		functionsAndThen();
+		
 		functionsCompose();
+		
+		functionOnMap();
 	}
 	
 	//1. Convert list of strings to uppercase using Lambda expression in Java
@@ -28,8 +34,7 @@ public class FunctionStudy {
 	static void functionsAndThen() {
 		Function<String, Integer> stringLength = s -> s.length();
 		Function<Integer, Integer> square = len -> len * len;
-		Function<String, Integer> squaredLength = stringLength.andThen(square);
-		System.out.println(squaredLength.apply("Hello")); // Outputs: 25
+		System.out.println(stringLength.andThen(square).apply("Hello")); // Outputs: 25
 	}
 	
 	//3. Write a function that represents the usage of the compose() default method
@@ -40,6 +45,22 @@ public class FunctionStudy {
 		Function<Integer, Integer> composedFunctionReversed = square.andThen(addNums);
 		System.out.println(composedFunction.apply(1)); // Outputs: 16
 		System.out.println(composedFunctionReversed.apply(1)); // Outputs: 4
+	}
+	
+	static void functionOnMap() {
+//		Map<String, Integer> map = new HashMap<String, Integer>() {{ 
+//            put("John", null); 
+//            put("Tom", 3); 
+//            put("TJ", 2); 
+//        }}; 
+        
+        Map<String, Integer> map = new HashMap<>();
+        map.put("Alice", null);
+        map.put("Bob", 0);
+        map.put("Charlie", 0);
+
+        map.keySet().forEach(key -> map.computeIfAbsent(key, k -> k.length()));
+        map.forEach((key, value) -> System.out.println(key + ": " + value));
 	}
 
 }
