@@ -13,8 +13,7 @@ public class ReflectionStudy {
 			Constructor[] constructors = LazySingleton.class.getDeclaredConstructors();
 			for (Constructor constructor : constructors) {
 				// java.lang.IllegalAccessException: class ReflectionStudy cannot access a
-				// member of
-				// class LazyInitializedSingleton with modifiers "private"
+				// member of class LazySingleton with modifiers "private"
 				constructor.setAccessible(true);
 				instanceTwo = (LazySingleton) constructor.newInstance();
 				break;

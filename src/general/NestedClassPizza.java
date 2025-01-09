@@ -1,11 +1,10 @@
 package general;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class NestedClassPizza {
+	
 	public class Pizza {
 	    private PizzaStatus status = PizzaStatus.READY;
+	   
 	    public enum PizzaStatus {
 	        ORDERED,
 	        READY,
@@ -22,7 +21,7 @@ public class NestedClassPizza {
 	}
 	
 	public static void main(String[] args) {
-//		Pizza pizza = new Pizza(); //No enclosing instance of type EnumStudy is accessible.
+//		Pizza pizza = new Pizza(); // No enclosing instance of type NestedClassPizza is accessible
 		NestedClassPizza outer = new NestedClassPizza();
 		Pizza pizza = outer.new Pizza();
 		System.out.println(pizza.getStatus());

@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
+import java.util.function.UnaryOperator;
 
 public class FunctionStudy {
 
@@ -61,6 +62,14 @@ public class FunctionStudy {
 
         map.keySet().forEach(key -> map.computeIfAbsent(key, k -> k.length()));
         map.forEach((key, value) -> System.out.println(key + ": " + value));
+	}
+	
+	//Function vs. UnaryOperator
+	private static void stringUppercase() {
+//		Function<String, String> toUppercase = x -> x.toUpperCase();
+		UnaryOperator<String> toUppercase = x -> x.toUpperCase();
+		System.out.println(toUppercase.apply("Hello Bello"));
+	
 	}
 
 }
