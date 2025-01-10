@@ -2,7 +2,11 @@ package java8;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
@@ -15,12 +19,75 @@ public class Streams {
 	Stream<Integer> parallelStream = myList.parallelStream();
 	
 	public static void main(String[] args) {
-		avgOfInts();
-		stringUppercase();
-		maxInteger();
-		secondSmallest();
+//		avgOfInts();
+//		stringUppercase();
+//		maxInteger();
+//		secondSmallest();
+//		intermedateOperations();
+		terminalOperations();
 	}	
 	
+	private static void terminalOperations() {
+		List<String> names = Arrays.asList(
+	            "Reflection", "Collection", "Stream",
+	            "Structure", "Sorting", "State"
+	        );
+
+	        System.out.println("\nforEach:");
+	        names.stream().forEach(System.out::println);
+
+	        List<String> sNames = names.stream()
+	                                   .filter(name -> name.startsWith("S"))
+	                                   .collect(Collectors.toList());
+	        System.out.println("\ncollect (names starting with 'S'):");
+	        sNames.forEach(System.out::println);
+
+	        String concatenatedNames = 
+	        		names.stream().reduce( "", (partialString, element) -> partialString + " " + element);
+	        System.out.println("\nreduce (concatenated names):");
+	        System.out.println(concatenatedNames.trim());
+
+	        long count = names.stream().count();
+	        System.out.println("\ncount:" + count);
+
+	        Optional<String> firstName = names.stream().findFirst();
+	        System.out.println("\nfindFirst:");
+	        firstName.ifPresent(System.out::println);
+
+	        boolean allStartWithS = names.stream().allMatch(name -> name.startsWith("S"));
+	        System.out.println("\nallMatch (all start with 'S'):");
+	        System.out.println(allStartWithS);
+
+	        boolean anyStartWithS = names.stream().anyMatch(name -> name.startsWith("S"));
+	        System.out.println();
+	        System.out.println("\nanyMatch (any start with 'S'):" + anyStartWithS);
+		
+	}
+
+	private static void intermedateOperations() {
+		List<List<String>> listOfLists = Arrays.asList(
+				Arrays.asList("Reflection", "Collection", "Stream"),
+				Arrays.asList("Structure", "State", "Flow"),
+				Arrays.asList("Sorting", "Mapping", "Reduction", "Stream"));
+
+		Set<String> intermediateResults = new HashSet<>();
+
+		// Flatten the list of lists into a single stream
+		List<String> result = listOfLists.stream().flatMap(List::stream) 
+				.filter(s -> s.startsWith("S"))
+				.map(String::toUpperCase)
+				.distinct()
+				.sorted()
+				.peek(s -> intermediateResults.add(s)) //Perform action(add to set) on each element
+				.collect(Collectors.toList());
+
+		System.out.println("Intermediate Results:");
+		intermediateResults.forEach(System.out::println);
+
+		System.out.println("Final Result:");
+		result.forEach(System.out::println);
+	}
+
 	//1. Write a Java program to calculate the average of a list of integers using streams.
 	private static void avgOfInts() {
 		List<Integer> nums = Arrays.asList(1, 3, 6, 8, 10, 18, 36);
