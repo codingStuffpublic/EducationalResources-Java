@@ -32,7 +32,6 @@ public class Streams {
 	            "Reflection", "Collection", "Stream",
 	            "Structure", "Sorting", "State"
 	        );
-
 	        System.out.println("\nforEach:");
 	        names.stream().forEach(System.out::println);
 
