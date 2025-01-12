@@ -4,21 +4,25 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Consumer;
 import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 
 public class ConsumerStudy {
 	
 	public static void main(String[] args) {
 		consumer();
+		
+		consumerOnMap();
+		
 		combineConsumers();
+		
+		biConsumer();
 	}
 	
 	static void consumer(){
 		List<String> names = Arrays.asList("John", "Freddy", "Samuel");
 		names.forEach(name -> System.out.println("Hello, " + name));
 	}
-
 
 	static void consumerOnMap(){
 		Map<String, Integer> ages = new HashMap<>();
@@ -40,5 +44,11 @@ public class ConsumerStudy {
         first.andThen(second).accept("Hello world");
 	}
 	
+	static void biConsumer() {
+		BiConsumer<String, Integer> printNameAndAge = (name, age) -> 
+	    System.out.println(name + " is " + age + " years old.");
+
+	    printNameAndAge.accept("Alice", 30); // Outputs: Alice is 30 years old.
+	}
 
 }

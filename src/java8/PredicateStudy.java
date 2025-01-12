@@ -37,6 +37,8 @@ public class PredicateStudy {
 		
 		//4 default methods
 		filter();
+		
+		biPredicate();
 	}
 
 	//	Write a Java program to implement a lambda expression to filter out even and odd numbers from a list of integers.
@@ -55,10 +57,14 @@ public class PredicateStudy {
 		System.out.println(isEven.or(isPositive).test(-3)); // Outputs: true
 		System.out.println(isEven.negate().test(4)); // Outputs: true
 	}
+	
+	static void biPredicate() {
+		BiPredicate<Integer, Integer> isGreater = (a, b) -> a > b;
+		System.out.println(isGreater.test(5, 3)); // Outputs: true
+	}
 }
 
 //1. Write a Java program to implement a lambda expression to check if a given string is empty.
 interface StringChecker {
 	boolean isStringEmpty(String text);
 }
-

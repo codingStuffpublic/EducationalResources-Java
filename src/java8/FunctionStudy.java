@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.BiFunction;
+import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
 
@@ -23,6 +25,14 @@ public class FunctionStudy {
 		functionsCompose();
 		
 		functionOnMap();
+		
+		stringUppercaseUnaryOperator();
+		
+		squareUnaryOperator();
+		
+		biFunction();
+		
+		binaryOperator();
 	}
 	
 	//1. Convert list of strings to uppercase using Lambda expression in Java
@@ -65,11 +75,26 @@ public class FunctionStudy {
 	}
 	
 	//Function vs. UnaryOperator
-	private static void stringUppercase() {
+	private static void stringUppercaseUnaryOperator() {
 //		Function<String, String> toUppercase = x -> x.toUpperCase();
 		UnaryOperator<String> toUppercase = x -> x.toUpperCase();
 		System.out.println(toUppercase.apply("Hello Bello"));
-	
 	}
+	
+	static void squareUnaryOperator() {
+		UnaryOperator<Integer> square = i -> i * i;
+		System.out.println(square.apply(5)); // Outputs: 25
+	}
+	
+	private static void biFunction() {
+		BiFunction<Integer, Integer, String> sumAndFormat = (a, b) -> "Sum: " + (a + b);
+		System.out.println(sumAndFormat.apply(3, 4)); // Outputs: Sum: 7
+	}
+	
+	static void binaryOperator() {
+		BinaryOperator<Integer> add = (a, b) -> a + b;
+		System.out.println(add.apply(3, 4)); // Outputs: 7
+	}
+
 
 }

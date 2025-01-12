@@ -12,7 +12,7 @@ public interface SendNotificationInterface {
 	}
 
 	private static void establishConnection() {
-		
+		System.out.println("Establishing connection");
 	}
 
 }
