@@ -2,9 +2,7 @@ package java17;
 
 public class SwitchExpressionStudy {
 
-	public static void main(String[] args) {
-		
-	}
+	public static void main(String[] args) {	}
 	
 	public static String getDayOfWeekSwitchExpression(int dayNum) {
 	    return switch (dayNum) {
@@ -58,18 +56,18 @@ record PayPalPayment(String email) {}
 
 class PaymentProcessing {
 
-//  private static void processPayment(Object payment) {
-//      String result = switch (payment) {
-//          case CreditCardPayment cc -> "Processing Credit Card payment with card number: " + cc.cardNumber();
-//          case PayPalPayment pp -> "Processing PayPal payment with email: " + pp.email();
-//          case Integer amount -> "Processing Cash payment of $" + amount;
-//          case null -> "Invalid payment method: null";
-//          default -> "Unknown payment method.";
-//      };
-//      System.out.println(result);
-//  }
-//
-//  public static void main(String[] args) {
-//      processPayment(new CreditCardPayment("1234-5678-9876-5432"));
-//  }
+  private static void processPayment(Object payment) {
+      String result = switch (payment) {
+          case CreditCardPayment cc -> "Processing Credit Card payment with card number: " + cc.cardNumber();
+          case PayPalPayment pp -> "Processing PayPal payment with email: " + pp.email();
+          case Integer amount -> "Processing Cash payment of $" + amount;
+          case null -> "Invalid payment method: null";
+          default -> "Unknown payment method.";
+      };
+      System.out.println(result);
+  }
+
+  public static void main(String[] args) {
+      processPayment(new CreditCardPayment("1234-5678-9876-5432"));
+  }
 }
