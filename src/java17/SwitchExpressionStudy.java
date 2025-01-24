@@ -1,4 +1,4 @@
-package java12;
+package java17;
 
 public class SwitchExpressionStudy {
 

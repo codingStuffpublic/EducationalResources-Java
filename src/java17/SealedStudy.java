@@ -1,4 +1,4 @@
-package java15;
+package java17;
 
 public class SealedStudy {
 	
@@ -6,9 +6,7 @@ public class SealedStudy {
 }
 
 sealed interface Vehicle permits Car, Truck {
-
     String getRegistrationNumber();
-
 }
 
 record Car(int numberOfSeats, String registrationNumber) implements Vehicle {
@@ -21,7 +19,6 @@ record Car(int numberOfSeats, String registrationNumber) implements Vehicle {
     public int getNumberOfSeats() {
         return numberOfSeats;
     }
-
 }
 
 //The type Truck22 that implements a sealed interface Vehicle should be a permitted subtype of Vehicle
