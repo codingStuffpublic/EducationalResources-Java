@@ -10,7 +10,7 @@ public class PatternMatchingSwitch {
 			default -> System.out.println("Not recognised");
 		}
 		
-		System.out.println(switch (o) { // switch expression does not cover all possible input values
+		System.out.println(switch (o) {
 			case String s -> "String";
 			case Integer i -> {
 				yield "Integer";
