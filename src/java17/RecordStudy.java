@@ -1,4 +1,4 @@
-package general;
+package java17;
 
 import java.util.Objects;
 
