@@ -1,4 +1,4 @@
-package challenges.library2;
+package challenges;
 
 import java.util.ArrayList;
 import java.util.HashMap;
