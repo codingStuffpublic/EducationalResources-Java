@@ -12,6 +12,7 @@ public class LibrarySystem {
         
         library.addBook(new Book("Java Basics", "John Doe"));
         library.addBook(new Book("Advanced Java", "Jane Smith"));
+        
         library.registerUser(new User("Alice"));
         library.registerUser(new User("Bob"));
         
