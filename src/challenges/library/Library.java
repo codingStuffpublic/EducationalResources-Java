@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import challenges.library.Book.BookStatus;
 
@@ -32,9 +33,9 @@ public class Library {
 		return null;
 	}
 	
-	public Book searchBook(String title) {
+	public List<Book> searchBook(String title) {
 		if(books.containsKey(title))
-			return books.values().stream().filter(x -> x.getTitle().equals(title)).findAny().orElseThrow();
+			return books.values().stream().filter(b -> b.getTitle().contains(title) || b.getAuthor().contains(title)).collect(Collectors.toList());
 		return null;
 	}
 	

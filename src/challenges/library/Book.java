@@ -4,6 +4,11 @@ import java.util.Objects;
 
 public class Book {
 	
+	public enum BookStatus {
+        FREE,
+        BORROWED,
+    }
+	
 	private String title;
 	private String author;
 	private BookStatus status;
@@ -54,8 +59,5 @@ public class Book {
 	public void setStatus(BookStatus status) {
 		this.status = status;
 	}
-	public enum BookStatus {
-        FREE,
-        BORROWED,
-    }
+	
 }
